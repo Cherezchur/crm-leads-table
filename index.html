@@ -70,28 +70,32 @@
           </a>
           <div class="history__table-body">
 
-            <div class="history__table-row-contact history__table-row-contact--open">
-              <table>
-                <tbody>
-                  <tr class="history__table-body-row">
-                    <td>
-                      <img src="./images/mail-icon.png" alt="mail">
-                    </td>
-                    <td>16:00</td>
-                    <td>11 май 2021</td>
-                    <td>Почта</td>
-                    <td>Киреева Алена Викторовна</td>
-                    <td>+7 (961)590-18-73</td>
-                  </tr>
-                </tbody>
-              </table>
-              <!--contact-card-->
-            </div>
+          <!--table-item-->
 
           </div>
         </div>
       </div>
     </section>
+
+    <template id="table-item">
+      <div class="history__table-row-contact history__table-row-contact--open">
+        <table>
+          <tbody>
+            <tr class="history__table-body-row">
+              <td>
+                <img class="history__table-image" src="./images/mail-icon.png" alt="mail">
+              </td>
+              <td class="history__table-time">16:00</td>
+              <td class="history__table-date">11 май 2021</td>
+              <td class="history__table-communication">Почта</td>
+              <td class="history__table-name">Киреева Алена Викторовна</td>
+              <td class="history__table-tel">+7 (961)590-18-73</td>
+            </tr>
+          </tbody>
+        </table>
+        <!--contact-card-->
+      </div>
+    </template>
 
     <template id="#contact-card">
       <div class="contact-card">
