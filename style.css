@@ -55,40 +55,40 @@ table th {
 }
 
 table thead {
-    background-color:#F5F5F5;
+    background-color:#efefef;
 }
 
 table th:nth-child(1),
-.history__table-body-row td:nth-child(1) {
+.table-item__body-row td:nth-child(1) {
     width: 5%;
 }
 
 table th:nth-child(2),
-.history__table-body-row td:nth-child(2) {
+.table-item__body-row td:nth-child(2) {
     width: 17.5%;
 }
 
 table th:nth-child(3),
-.history__table-body-row td:nth-child(3) {
-    width: 17..5%;
+.table-item__body-row td:nth-child(3) {
+    width: 17.5%;
 }
 
 table th:nth-child(4),
-.history__table-body-row td:nth-child(4) {
+.table-item__body-row td:nth-child(4) {
     width: 18%;
 }
 
 table th:nth-child(5),
-.history__table-body-row td:nth-child(5) {
-    width: 21%;
+.table-item__body-row td:nth-child(5) {
+    width: 23%;
 }
 
 table th:nth-child(6),
-.history__table-body-row td:nth-child(6) {
-    width: 21%;
+.table-item__body-row td:nth-child(6) {
+    width: 18%;
 }
 
-.history__table-body-info td {
+.table-item__body-info td {
     width: 100%;
 }
 
@@ -200,7 +200,7 @@ table th:nth-child(6),
     background: #BBBBBB;
 }
 
-.history__table-to-down::after {
+.history-body__to-down::after {
     content: "";
 
     position: absolute;
@@ -212,7 +212,7 @@ table th:nth-child(6),
     background-image: url(./images/to-down-icon.png);
 }
 
-.history__table {
+.history-body {
     position: relative;
     table-layout: fixed;
 
@@ -220,49 +220,49 @@ table th:nth-child(6),
     line-height: 23px;
 }
 
-.history__table .history__table-head {
+.history-body .history-body__head {
     padding-right: 30px;
 }
 
-.history__table thead th {
+.history-body thead th {
     font-weight: 400;
     padding-left: 7px;
     padding-top: 4px;
     padding-bottom: 6px;
 }
 
-.history__table thead th:nth-child(1){
+.history-body thead th:nth-child(1){
     background-color: #FFFFFF;
 }
 
-.history__table-body {
+.history-body__body {
 	height: 524px;
 	overflow-x:auto;
     padding-right: 25px;
 }
 
-.history__table-body table {
+.history-body__body table {
     border-spacing: 0;
 }
 
-.history__table-body tbody td {
+.history-body__body tbody td {
     padding-left: 7px;
     padding-top: 4px;
     padding-bottom: 6px;
 }
 
-.history__table-body tbody tr td:first-child {
+.history-body__body tbody tr td:first-child {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
 
-.history__table-body tbody tr td:last-child {
+.history-body__body tbody tr td:last-child {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.history__table-body tbody tr:hover,
-.history__table-body tbody tr:focus {
+.history-body__body tbody tr:hover,
+.history-body__body tbody tr:focus {
     background-color: #EBEBEB;
 }
 
@@ -278,20 +278,20 @@ table th:nth-child(6),
     border-radius: 14.5px; 
 }
 
-.history__table-row-contact {
+.table-item {
     margin-top: 12px;
 }
 
-.history__table-row-contact--open {
+.table-item__body-row {
+    margin-top: 12px;
+}
+
+.table-item__body-row--open {
     background-color: #EBEBEB;
     border-radius: 20px;
 }
 
-.contact-card {
-    display: none;
-}
-
-.history__table-row-contact--open .contact-card {
+.table-item__body-row--open .contact-card {
     display: flex;
     flex-direction: column;
 
@@ -301,6 +301,52 @@ table th:nth-child(6),
     background: #EBEBEB;
     padding-left: 58px;
     border-radius: 20px;
+}
+
+.call-icon {
+    font-size: 10px;
+    position: relative;
+    margin-left: 40px;
+}
+
+.call-icon::before {
+    content: "";
+
+    position: absolute;
+    top: 0px;
+    left: -25px;
+    width: 10px;
+    height: 10px;
+
+    background-image: url(./images/mini-call-icon.png);
+}
+
+.call-icon--outgoing::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -13px;
+    width: 10px;
+    height: 10px;
+
+    background-image: url(./images/incoming-call.png);
+}
+
+.call-icon--incoming::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -13px;
+    width: 10px;
+    height: 10px;
+
+    background-image: url(./images/outgoing-call.png);
+}
+
+.contact-card {
+    display: none;
 }
 
 .contact-card .contact-card__title {
