@@ -1,40 +1,13 @@
+import { getCommunicationContent } from "./utils.js";
+import { renderContactCard, contactCardElement } from "./contact-card.js";
+
 const tableBody = document.querySelector('.history-body__body');
 const tableItemTemplate = document.querySelector('#table-item').content.querySelector('.table-item');
+const contactCardTemplate = document.querySelector('#contact-card').content.querySelector('.contact-card');
 const tableItemFragment = document.createDocumentFragment();
 
-'mail', 'sms', 'niceIncomingCall', 'niceOutgoingCall', 'missedIncomingCall', 'missedOutgoingCall', 'messanger'
-
-const getCommunicationContent = (communication) => {
-    switch (communication) {
-        case 'mail':
-            return {
-                imagePath: './images/mail-icon.png',
-                communicationTitle: 'Почта'
-            };
-            break;
-        case 'sms':
-            return {
-                imagePath: './images/sms-icon.png',
-                communicationTitle: 'Смс'
-            };
-            break
-        case 'messanger':
-            return {
-                imagePath: './images/messanger-icon.png',
-                communicationTitle: 'Мессанджер'
-            };
-            break
-        default:
-            return {
-                imagePath: './images/call-icon.png',
-                communicationTitle: 'Звонок',
-                callType: communication
-            };
-    }
-}
-
 const getTableContainer = (data) => {
-    data.forEach(({communication, date, name, phoneNumber, time}, id) => {
+    data.forEach(({communication, date, name, phoneNumber, time, inn, company, email}, id) => {
         const tableItemElement = tableItemTemplate.cloneNode(true);
         const communicationImage = tableItemElement.querySelector('.table-item__image');
         const communicationElement = tableItemElement.querySelector('.table-item__communication');
@@ -62,6 +35,21 @@ const getTableContainer = (data) => {
             
             communicationElement.appendChild(callIconElement);
         }
+
+        tableItemElement.addEventListener('click', () => {
+            if(tableItemElement.className === 'table-item table-item--open') {
+                tableItemElement.classList.remove('table-item--open');
+                console.log(tableItemElement);
+                console.log(contactCardElement);
+                tableItemElement.removeChild(contactCardElement);
+                return;
+            }
+            tableItemElement.classList.add('table-item--open');
+            const contactCardElement = contactCardTemplate.cloneNode(true);
+            
+            renderContactCard({inn, company, email, id}, tableItemElement);
+        })
+
         tableItemFragment.appendChild(tableItemElement);
     });
 

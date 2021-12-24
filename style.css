@@ -345,10 +345,6 @@ table th:nth-child(6),
     background-image: url(./images/outgoing-call.png);
 }
 
-.contact-card {
-    display: none;
-}
-
 .contact-card .contact-card__title {
     text-align: end;
     margin: 0;
