@@ -1,10 +1,10 @@
 import { getCommunicationContent } from "./utils.js";
-import { renderContactCard, contactCardElement } from "./contact-card.js";
+import { renderContactCard} from "./contact-card.js";
 
 const tableBody = document.querySelector('.history-body__body');
 const tableItemTemplate = document.querySelector('#table-item').content.querySelector('.table-item');
-const contactCardTemplate = document.querySelector('#contact-card').content.querySelector('.contact-card');
 const tableItemFragment = document.createDocumentFragment();
+let prevTableItem;
 
 const getTableContainer = (data) => {
     data.forEach(({communication, date, name, phoneNumber, time, inn, company, email}, id) => {
@@ -37,15 +37,17 @@ const getTableContainer = (data) => {
         }
 
         tableItemElement.addEventListener('click', () => {
+
             if(tableItemElement.className === 'table-item table-item--open') {
-                tableItemElement.classList.remove('table-item--open');
-                console.log(tableItemElement);
-                console.log(contactCardElement);
-                tableItemElement.removeChild(contactCardElement);
                 return;
             }
+
+            if(prevTableItem) {
+                prevTableItem.classList.remove('table-item--open');
+            }
+
             tableItemElement.classList.add('table-item--open');
-            const contactCardElement = contactCardTemplate.cloneNode(true);
+            prevTableItem = tableItemElement;
             
             renderContactCard({inn, company, email, id}, tableItemElement);
         })
