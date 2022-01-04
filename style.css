@@ -32,6 +32,11 @@ body {
     overflow: hidden;
  }
 
+button {
+    background-color: transparent;
+    border: none;
+}
+
 ul {
     padding: 0;
     list-style: none;
@@ -282,16 +287,12 @@ table th:nth-child(6),
     margin-top: 12px;
 }
 
-.table-item__body-row {
-    margin-top: 12px;
-}
-
-.table-item__body-row--open {
+.table-item--open {
     background-color: #EBEBEB;
-    border-radius: 20px;
+    border-radius: 16px;
 }
 
-.table-item__body-row--open .contact-card {
+.table-item--open .contact-card {
     display: flex;
     flex-direction: column;
 
@@ -300,7 +301,7 @@ table th:nth-child(6),
 
     background: #EBEBEB;
     padding-left: 58px;
-    border-radius: 20px;
+    border-radius: 16px;
 }
 
 .call-icon {
@@ -358,7 +359,7 @@ table th:nth-child(6),
 }
 
 .info__avatar {
-    margin-right: 45px;
+    margin-right: 80px;
 }
 
 .info__avatar ul {
@@ -376,6 +377,10 @@ table th:nth-child(6),
 
 .info__avatar .avatar {
     border-radius: 20px;
+}
+
+.contact__content {
+    margin-right: 20px;
 }
 
 .contact__content-wrapper {
@@ -468,6 +473,7 @@ table th:nth-child(6),
 
 .conversation {
     display: flex;
+    justify-content: space-between;
     margin-top: 15px;
 }
 
@@ -477,12 +483,16 @@ table th:nth-child(6),
 }
 
 .conversation label {
-    text-align: end;
-    margin-right: 43px;
+    margin-right: 10px;
 }
 
-.conversation__first-column input,
-.conversation__first-column textarea {
+.conversation textarea {
+    resize: none;
+}
+
+.conversation input,
+.conversation textarea {
+    padding: 5px;
     min-width: 300px;
     height: 26px;
     border: none;
@@ -496,7 +506,8 @@ table th:nth-child(6),
 }
 
 .conversation__first-column div {
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-right: 40px;
 }
 
 .conversation__second-column {

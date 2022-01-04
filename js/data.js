@@ -41,4 +41,6 @@ const createData = () => ({
 
 const leadsInformation = new Array(LEADS_COUNT).fill(null).map(() => createData());
 
+console.log(leadsInformation);
+
 export {leadsInformation};

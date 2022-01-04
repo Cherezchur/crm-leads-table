@@ -4,9 +4,10 @@ import { renderContactCard} from "./contact-card.js";
 const tableBody = document.querySelector('.history-body__body');
 const tableItemTemplate = document.querySelector('#table-item').content.querySelector('.table-item');
 const tableItemFragment = document.createDocumentFragment();
-let prevTableItem;
+let isItemActive = false;
 
 const getTableContainer = (data) => {
+
     data.forEach(({communication, date, name, phoneNumber, time, inn, company, email}, id) => {
         const tableItemElement = tableItemTemplate.cloneNode(true);
         const communicationImage = tableItemElement.querySelector('.table-item__image');
@@ -27,35 +28,40 @@ const getTableContainer = (data) => {
 
             if(communication === 'niceIncomingCall' || communication === 'missedIncomingCall') {
                 callIconElement.textContent = 'Входящий';
-                callIconElement.classList.add('call-icon--incoming');
+                callIconElement.classList.add('call-icon--outgoing');
             } else {
                 callIconElement.textContent = 'Исходящий';
-                callIconElement.classList.add('call-icon--outgoing');
+                callIconElement.classList.add('call-icon--incoming');
             }
             
             communicationElement.appendChild(callIconElement);
         }
 
-        tableItemElement.addEventListener('click', () => {
+        const tableItemClickHandler = (evt) => {
 
-            if(tableItemElement.className === 'table-item table-item--open') {
+            console.log(evt.target.tagName);
+
+            if(evt.target.tagName === 'BUTTON') {
+                isItemActive = false;
                 return;
             }
-
-            if(prevTableItem) {
-                prevTableItem.classList.remove('table-item--open');
+        
+            if(isItemActive === false) {
+                isItemActive = true;
+                tableItemElement.classList.add('table-item--open');
+                renderContactCard({name, inn, company, email}, tableItemElement);
             }
+        }
 
-            tableItemElement.classList.add('table-item--open');
-            prevTableItem = tableItemElement;
-            
-            renderContactCard({inn, company, email, id}, tableItemElement);
-        })
+        tableItemElement.addEventListener('click', tableItemClickHandler);
 
         tableItemFragment.appendChild(tableItemElement);
     });
 
     tableBody.appendChild(tableItemFragment);
+    const lastItemElement = tableBody.querySelector(`.table-item[data-id="${data.length - 1}"]`);
+    console.log(lastItemElement)
+    lastItemElement.setAttribute('id', 'to-down');
 }
 
 export {getTableContainer};
