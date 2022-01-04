@@ -52,8 +52,8 @@
           </table>
         </div>
 
-        <div class="history__table">
-          <table class="history__table-head">
+        <div class="history-body">
+          <table class="history-body__head">
             <thead>
               <tr>
                 <th></th>
@@ -65,10 +65,10 @@
               </tr>
             </thead>
           </table>
-          <a class="history__table-to-down" href="#to-down">
+          <a class="history-body__to-down" href="#to-down">
             <span class="visually-hidden">К концу таблице</span>
           </a>
-          <div class="history__table-body">
+          <div class="history-body__body">
 
           <!--table-item-->
 
@@ -78,18 +78,18 @@
     </section>
 
     <template id="table-item">
-      <div class="history__table-row-contact history__table-row-contact--open">
+      <div class="table-item">
         <table>
           <tbody>
-            <tr class="history__table-body-row">
+            <tr class="table-item__body-row">
               <td>
-                <img class="history__table-image" src="./images/mail-icon.png" alt="mail">
+                <img class="table-item__image" src="./images/mail-icon.png" alt="mail">
               </td>
-              <td class="history__table-time">16:00</td>
-              <td class="history__table-date">11 май 2021</td>
-              <td class="history__table-communication">Почта</td>
-              <td class="history__table-name">Киреева Алена Викторовна</td>
-              <td class="history__table-tel">+7 (961)590-18-73</td>
+              <td class="table-item__time"></td>
+              <td class="table-item__date"></td>
+              <td class="table-item__communication"></td>
+              <td class="table-item__name"></td>
+              <td class="table-item__tel"></td>
             </tr>
           </tbody>
         </table>
@@ -97,7 +97,7 @@
       </div>
     </template>
 
-    <template id="#contact-card">
+    <template id="contact-card">
       <div class="contact-card">
         <p class="contact-card__title">Редактирование</p>
         <div class="contact-card__info">
@@ -125,7 +125,7 @@
               <div class="contact__content-info">
                 <ul class="name-list">
                   <li>Физ.лицо:</li>
-                  <li>Иванов Иван Иванович</li>
+                  <li id="contact-name"></li>
                   <li class="additional-info">
                     <button class="drop-down"></button>
                     <button class="info"></button>
@@ -133,11 +133,11 @@
                 </ul>
                 <ul class="inn-list">
                   <li>ИНН:</li>
-                  <li>84383208473</li>
+                  <li id="contact-inn"></li>
                 </ul>
                 <ul class="company-list">
                   <li>Предприятие:</li>
-                  <li>Аскона</li>
+                  <li id="contact-company"></li>
                   <li class="additional-info">
                     <button class="drop-down"></button>
                     <button class="info"></button>
@@ -145,7 +145,7 @@
                 </ul>
                 <ul class="email-list">
                   <li>e-mail:</li>
-                  <li>askona@mail.ru</li>
+                  <li id="contact-email"></li>
                 </ul>
               </div>
               <div class="contact__content-audio">
@@ -166,7 +166,7 @@
               <div class="conversation__first-column">
                 <div>
                   <label for="speac-topic">Выбор темы разговора:</label>
-                  <input type="text" name="speac-topic" list="speac-topic" value="Выставить счет">
+                  <input type="text" name="speac-topic" list="speac-topic">
                 </div>
                 <div>
                   <label for="note">Примечание:</label>
@@ -181,7 +181,7 @@
           </div>
         </div>
         <div class="contact-card__change-button">
-          <button>Готово</button>
+          <button class="down-button">Готово</button>
         </div>
       </div>
     </template>
