@@ -12,39 +12,20 @@
     <section id="history">
       <div class="history__wrapper">
 
-        <div class="history__header">
-          <table class="header-table">
+        <div class="history-header">
+          <table class="history-header__table">
             <tbody>
               <tr>
                 <td></td>
                 <td>
-                  <div class="search-wrapper">
+                  <div class="history-header__search">
                     <p>История</p>
                     <input type="search" name="search" id="search">
                   </div>
                 </td>
-                <td>
-                  <form class="filters">
-                    <div>
-                      <label for="all">Все</label>
-                      <input type="radio" name="filter" id="all" checked>
-                    </div>
-                    <div>
-                      <label for="order">Заказы</label>
-                      <input type="radio" name="filter" id="order">
-                    </div>
-                    <div>
-                      <label for="call">Звонки</label>
-                      <input type="radio" name="filter" id="call">
-                    </div>
-                    <div>
-                      <label for="mail">Почта</label>
-                      <input type="radio" name="filter" id="mail">
-                    </div>
-                    <div>
-                      <label for="messanger">Мессенджеры</label>
-                      <input type="radio" name="filter" id="messanger">
-                    </div>
+                <td class="">
+                  <form class="history-header__filters">
+                    <!--filters-->
                   </form>
                 </td>
               </tr>
@@ -61,7 +42,7 @@
                 <th>Дата</th>
                 <th>Способ связи</th>
                 <th>Физ лицо</th>
-                <th>Телофен</th>
+                <th>Телефон</th>
               </tr>
             </thead>
           </table>
@@ -185,6 +166,14 @@
         </div>
       </div>
     </template>
+
+    <template id="filter">
+      <div class="filter">
+        <label></label>
+        <input type="radio" name="filter">
+      </div>
+    </template>
+
 
     <script src="js/main.js" type="module"></script>
 

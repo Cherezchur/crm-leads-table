@@ -6,7 +6,11 @@ const tableItemTemplate = document.querySelector('#table-item').content.querySel
 const tableItemFragment = document.createDocumentFragment();
 let isItemActive = false;
 
-const getTableContainer = (data) => {
+const getTableItems = (data) => {
+
+    tableBody.textContent = '';
+
+    console.log(data);
 
     data.forEach(({communication, date, name, phoneNumber, time, inn, company, email}, id) => {
         const tableItemElement = tableItemTemplate.cloneNode(true);
@@ -39,8 +43,6 @@ const getTableContainer = (data) => {
 
         const tableItemClickHandler = (evt) => {
 
-            console.log(evt.target.tagName);
-
             if(evt.target.tagName === 'BUTTON') {
                 isItemActive = false;
                 return;
@@ -60,8 +62,7 @@ const getTableContainer = (data) => {
 
     tableBody.appendChild(tableItemFragment);
     const lastItemElement = tableBody.querySelector(`.table-item[data-id="${data.length - 1}"]`);
-    console.log(lastItemElement)
     lastItemElement.setAttribute('id', 'to-down');
 }
 
-export {getTableContainer};
+export {getTableItems};

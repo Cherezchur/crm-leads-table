@@ -1,5 +1,6 @@
-import { getTableContainer } from "./table-items.js";
+import { getTableItems } from "./table-items.js";
+import { getFilters } from "./filter.js";
 import { leadsInformation } from "./data.js";
-import "./contact-card.js";
 
-getTableContainer(leadsInformation);
+getFilters();
+getTableItems(leadsInformation);

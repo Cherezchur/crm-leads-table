@@ -1,21 +1,23 @@
+const FILTERS = ['Все', 'Звонки', 'Почта', 'Мессенджер', 'Смс'];
+
 const getCommunicationContent = (communication) => {
     switch (communication) {
-        case 'mail':
+        case 'Mail':
             return {
                 imagePath: './images/mail-icon.png',
-                communicationTitle: 'Почта'
+                communicationTitle: 'Почта',
             };
             break;
-        case 'sms':
+        case 'Sms':
             return {
                 imagePath: './images/sms-icon.png',
                 communicationTitle: 'Смс'
             };
             break
-        case 'messanger':
+        case 'Messanger':
             return {
                 imagePath: './images/messanger-icon.png',
-                communicationTitle: 'Мессанджер'
+                communicationTitle: 'Мессенджер'
             };
             break
         default:
@@ -27,6 +29,26 @@ const getCommunicationContent = (communication) => {
     }
 }
 
+const getFilterAttribute = (filter) => {
+    switch (filter) {
+        case 'Все':
+            return 'All';
+            break;
+        case 'Звонки':
+            return 'Call';
+            break;
+        case 'Почта':
+            return 'Mail';
+            break;
+        case 'Мессенджер':
+            return 'Messanger';
+            break;
+        case 'Смс':
+            return 'Sms';
+            break;
+    }
+}
+
 const getRandomInteger = (firstInteger, lastInteger) => {
     const lower = Math.ceil(Math.min(Math.abs(firstInteger), Math.abs(lastInteger)));
     const upper = Math.floor(Math.max(Math.abs(firstInteger), Math.abs(lastInteger)));
@@ -35,4 +57,4 @@ const getRandomInteger = (firstInteger, lastInteger) => {
     return Math.floor(result);
 };
 
-export {getCommunicationContent, getRandomInteger};
+export {getCommunicationContent, getFilterAttribute, getRandomInteger, FILTERS};

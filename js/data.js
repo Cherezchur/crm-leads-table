@@ -15,7 +15,7 @@ const getDate = () => {
     return date;
 }
 
-const COMMUNICATION = ['mail', 'sms', 'niceIncomingCall', 'niceOutgoingCall', 'missedIncomingCall', 'missedOutgoingCall', 'messanger'];
+const COMMUNICATION = ['Mail', 'Sms', 'niceIncomingCall', 'niceOutgoingCall', 'missedIncomingCall', 'missedOutgoingCall', 'Messanger'];
 
 const NAMES = ['Шутов Николай Валерьевич', 'Тимощук Людмила Львовна', 'Гигенидзе Аврам Абдулович', 'Иванов Дмитрий Анатольевич'];
 
