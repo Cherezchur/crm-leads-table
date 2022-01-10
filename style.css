@@ -221,6 +221,7 @@ table th:nth-child(6),
 }
 
 .history-body .history-body__head {
+    margin-bottom: 10px;
     padding-right: 30px;
 }
 
@@ -517,6 +518,9 @@ table th:nth-child(6),
 }
 
 .contact-card__change-button {
+    display: flex;
+    justify-content: end;
+
     text-align: end;
     margin: 0;
     margin-right: 16px;
@@ -529,4 +533,13 @@ table th:nth-child(6),
     border: none;
     background: #BBBBBB;
     border-radius: 15px;
+}
+
+.save-button,
+.cancellation-button {
+    display: none;
+}
+
+.save-button {
+    margin-right: 10px;
 }
