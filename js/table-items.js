@@ -4,13 +4,11 @@ import { renderContactCard} from "./contact-card.js";
 const tableBody = document.querySelector('.history-body__body');
 const tableItemTemplate = document.querySelector('#table-item').content.querySelector('.table-item');
 const tableItemFragment = document.createDocumentFragment();
-let isItemActive = false;
 
 const getTableItems = (data) => {
 
+    let isItemActive = false;
     tableBody.textContent = '';
-
-    console.log(data);
 
     data.forEach(({communication, date, name, phoneNumber, time, inn, company, email}, id) => {
         const tableItemElement = tableItemTemplate.cloneNode(true);
