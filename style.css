@@ -543,3 +543,28 @@ table th:nth-child(6),
 .save-button {
     margin-right: 10px;
 }
+
+/* popup */
+
+#warning-popup {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 200px;
+    width: 400px;
+    height: 200px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px 0px rgb(0 0 0 / 30%);
+    border-radius: 20px;
+}
+
+.warning-popup__text {
+    text-align: center;
+}
+
+.warning-popup__buttons-wrapper {
+    margin: 0 auto;
+}
+
+.warning-popup__buttons-wrapper button {
+    margin: 0 auto;
+}
