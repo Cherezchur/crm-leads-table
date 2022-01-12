@@ -7,6 +7,12 @@ const tableItemFragment = document.createDocumentFragment();
 
 const getTableItems = (data) => {
 
+    console.log(data);
+    if(data.length === 0) {
+        tableBody.textContent = 'Здесь пока ни одного контакта...';
+        return;
+    }
+
     let isItemActive = false;
     tableBody.textContent = '';
 
