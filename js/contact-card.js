@@ -14,13 +14,17 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
     contactCardElement.querySelector('#contact-email').textContent = email;
     tableItemElement.appendChild(contactCardElement);
 
+    const removeContactCard = () => {
+        filterButtons.forEach((filter) => filter.removeAttribute('disabled', 'disabled'))
+        tableItemElement.classList.remove('table-item--open');
+        tableItemElement.removeChild(contactCardElement);
+    }
+
     const contactCardButtonClickHandler = (evt) => {
         if(evt.target.className === 'cancellation-button') {
             contactCardForm.reset();
         }
-        filterButtons.forEach((filter) => filter.removeAttribute('disabled', 'disabled'))
-        tableItemElement.classList.remove('table-item--open');
-        tableItemElement.removeChild(contactCardElement);
+        
     }
 
     contactCardForm.addEventListener('change', () => {
@@ -31,7 +35,7 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
         cancellationButton.setAttribute('style', 'display:block;');
     })
 
-    downButton.addEventListener('click', contactCardButtonClickHandler);
+    downButton.addEventListener('click', removeContactCard);
     saveButton.addEventListener('click', contactCardButtonClickHandler);
     cancellationButton.addEventListener('click', contactCardButtonClickHandler);
 }

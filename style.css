@@ -547,6 +547,7 @@ table th:nth-child(6),
 /* popup */
 
 #warning-popup {
+    display: none;
     position: absolute;
     margin: 0 auto;
     margin-top: 200px;
@@ -559,12 +560,19 @@ table th:nth-child(6),
 
 .warning-popup__text {
     text-align: center;
+    padding-top: 30px;
 }
 
 .warning-popup__buttons-wrapper {
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 70px;
 }
 
 .warning-popup__buttons-wrapper button {
-    margin: 0 auto;
+    width: 155px;
+    height: 26px;
+    border: none;
+    background: #BBBBBB;
+    border-radius: 15px;
 }
