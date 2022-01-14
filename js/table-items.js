@@ -46,12 +46,10 @@ const getTableItems = (data) => {
         }
 
         const tableItemClickHandler = (evt) => {
-
-            if(evt.target.tagName === 'BUTTON') {
+            if(evt.target.className === 'down-button') {
                 isItemActive = false;
                 return;
             }
-        
             if(isItemActive === false) {
                 isItemActive = true;
                 tableItemElement.classList.add('table-item--open');

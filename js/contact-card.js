@@ -24,9 +24,14 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
         tableItemElement.classList.remove('table-item--open');
     }
 
+    const contactCardButtonsReser = () => {
+        downButton.removeAttribute('style', 'display:none;');
+        saveButton.removeAttribute('style', 'display:block;');
+        cancellationButton.removeAttribute('style', 'display:block;');
+    }
+
     const negativeButtonClickHandler = () => {
         warningPopup.removeAttribute('style', 'display:block;');
-        negativeButton.removeEventListener('click', negativeButtonClickHandler);
     }
 
     const consertButtonClickHandler = () => {
@@ -41,12 +46,11 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
     }
 
     const contactCardButtonClickHandler = (evt) => {
-        showWarningPopup();
-
         if(evt.target.className === 'cancellation-button') {
+            showWarningPopup();
             warningPopupText.textContent = 'Удалить введенные данные?';
         } else {
-            warningPopupText.textContent = 'Сохранить введенные данные?';
+            contactCardButtonsReser();
         }
     }
 
@@ -58,11 +62,7 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
         cancellationButton.setAttribute('style', 'display:block;');
     })
 
-    contactCardForm.addEventListener('reset', () => {
-        downButton.removeAttribute('style', 'display:none;');
-        saveButton.removeAttribute('style', 'display:block;');
-        cancellationButton.removeAttribute('style', 'display:block;');
-    })
+    contactCardForm.addEventListener('reset', () => contactCardButtonsReser);
 
     downButton.addEventListener('click', removeContactCard);
     saveButton.addEventListener('click', contactCardButtonClickHandler);
