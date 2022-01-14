@@ -1,6 +1,6 @@
 import { getRandomInteger } from "./utils.js";
 
-const LEADS_COUNT = 25;
+const LEADS_COUNT = 5;
 
 const getTimes = () => {
     const minute = getRandomInteger(1,59);
@@ -40,7 +40,5 @@ const createData = () => ({
 })
 
 const leadsInformation = new Array(LEADS_COUNT).fill(null).map(() => createData());
-
-console.log(leadsInformation);
 
 export {leadsInformation};

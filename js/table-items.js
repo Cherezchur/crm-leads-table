@@ -4,13 +4,17 @@ import { renderContactCard} from "./contact-card.js";
 const tableBody = document.querySelector('.history-body__body');
 const tableItemTemplate = document.querySelector('#table-item').content.querySelector('.table-item');
 const tableItemFragment = document.createDocumentFragment();
-let isItemActive = false;
 
 const getTableItems = (data) => {
 
-    tableBody.textContent = '';
-
     console.log(data);
+    if(data.length === 0) {
+        tableBody.textContent = 'Здесь пока ни одного контакта...';
+        return;
+    }
+
+    let isItemActive = false;
+    tableBody.textContent = '';
 
     data.forEach(({communication, date, name, phoneNumber, time, inn, company, email}, id) => {
         const tableItemElement = tableItemTemplate.cloneNode(true);
@@ -42,12 +46,10 @@ const getTableItems = (data) => {
         }
 
         const tableItemClickHandler = (evt) => {
-
-            if(evt.target.tagName === 'BUTTON') {
+            if(evt.target.className === 'down-button') {
                 isItemActive = false;
                 return;
             }
-        
             if(isItemActive === false) {
                 isItemActive = true;
                 tableItemElement.classList.add('table-item--open');

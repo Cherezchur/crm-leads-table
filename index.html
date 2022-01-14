@@ -58,6 +58,14 @@
       </div>
     </section>
 
+    <section id="warning-popup">
+      <p class="warning-popup__text"></p>
+      <div class="warning-popup__buttons-wrapper">
+        <button class="warning-popup__consent">Да</button>
+        <button class="warning-popup__negative">Нет</button>
+      </div>
+    </section>
+
     <template id="table-item">
       <div class="table-item">
         <table>
@@ -172,10 +180,9 @@
     <template id="filter">
       <div class="filter">
         <label></label>
-        <input type="radio" name="filter">
+        <input class="filter__radio-button" type="radio" name="filter">
       </div>
     </template>
-
 
     <script src="js/main.js" type="module"></script>
 
