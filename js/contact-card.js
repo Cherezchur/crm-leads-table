@@ -9,8 +9,7 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
     const filterButtons = document.querySelectorAll('.filter__radio-button');
     const warningPopup = document.querySelector('#warning-popup');
     const warningPopupText = warningPopup.querySelector('.warning-popup__text');
-    const consentButton = warningPopup.querySelector('.warning-popup__consent');
-    const negativeButton = warningPopup.querySelector('.warning-popup__negative');
+    const warningPopupButtons = warningPopup.querySelector('.warning-popup__buttons-wrapper');
 
     contactCardElement.querySelector('#contact-name').textContent = name;
     contactCardElement.querySelector('#contact-inn').textContent = inn;
@@ -24,25 +23,20 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
         tableItemElement.classList.remove('table-item--open');
     }
 
-    const contactCardButtonsReser = () => {
+    const contactCardButtonsReset = () => {
         downButton.removeAttribute('style', 'display:none;');
         saveButton.removeAttribute('style', 'display:block;');
         cancellationButton.removeAttribute('style', 'display:block;');
     }
 
-    const negativeButtonClickHandler = () => {
-        warningPopup.removeAttribute('style', 'display:block;');
-    }
-
-    const consertButtonClickHandler = () => {
-        negativeButtonClickHandler();
-        contactCardForm.reset();
-    }
-
     const showWarningPopup = () => {
         warningPopup.setAttribute('style', 'display:block;');
-        negativeButton.addEventListener('click', negativeButtonClickHandler);
-        consentButton.addEventListener('click', consertButtonClickHandler);
+        warningPopupButtons.addEventListener('click', (evt) => {
+            warningPopup.removeAttribute('style', 'display:block;');
+            if(evt.target.className === 'warning-popup__consent') {
+                contactCardForm.reset();
+            }
+        })
     }
 
     const contactCardButtonClickHandler = (evt) => {
@@ -50,11 +44,11 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
             showWarningPopup();
             warningPopupText.textContent = 'Удалить введенные данные?';
         } else {
-            contactCardButtonsReser();
+            contactCardButtonsReset();
         }
     }
 
-    contactCardForm.addEventListener('change', () => {
+    contactCardForm.addEventListener('input', () => {
         filterButtons.forEach((filter) => filter.setAttribute('disabled', 'disabled'))
 
         downButton.setAttribute('style', 'display:none;');
@@ -62,7 +56,7 @@ const renderContactCard = ({name, inn, company, email}, tableItemElement) => {
         cancellationButton.setAttribute('style', 'display:block;');
     })
 
-    contactCardForm.addEventListener('reset', () => contactCardButtonsReser);
+    contactCardForm.addEventListener('reset', contactCardButtonsReset);
 
     downButton.addEventListener('click', removeContactCard);
     saveButton.addEventListener('click', contactCardButtonClickHandler);
