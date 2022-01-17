@@ -76,9 +76,7 @@ const getTableItems = (data) => {
         toDownButton.setAttribute('style', 'display:block;');
     }
 
-    console.log(tableBody);
-
-    tableBody.scrollHeight > 524 ? toDownButton.setAttribute('style', 'display:block;') : toDownButton.setAttribute('style', 'display:none;')
+    tableBody.scrollHeight > 524 ? moveUpTable() : moveDownTable();
 
     const scrolControlsClickhandler = (evt) => {
 
@@ -91,8 +89,6 @@ const getTableItems = (data) => {
         }
         return;
     }
-
-    console.log(tableBody.scrollHeight);
 
     tableBody.addEventListener('scroll', () => {
         console.log(tableBody.scrollTop);
