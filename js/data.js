@@ -1,6 +1,6 @@
 import { getRandomInteger } from "./utils.js";
 
-const LEADS_COUNT = 5;
+const LEADS_COUNT = 30;
 
 const getTimes = () => {
     const minute = getRandomInteger(1,59);

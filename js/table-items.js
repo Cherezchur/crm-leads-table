@@ -4,10 +4,12 @@ import { renderContactCard} from "./contact-card.js";
 const tableBody = document.querySelector('.history-body__body');
 const tableItemTemplate = document.querySelector('#table-item').content.querySelector('.table-item');
 const tableItemFragment = document.createDocumentFragment();
+const scrollControls = document.querySelector('.history-body__scroll-controls');
+const toUpButton = scrollControls.querySelector('.history-body__to-up');
+const toDownButton = scrollControls.querySelector('.history-body__to-down');
 
 const getTableItems = (data) => {
 
-    console.log(data);
     if(data.length === 0) {
         tableBody.textContent = 'Здесь пока ни одного контакта...';
         return;
@@ -63,8 +65,46 @@ const getTableItems = (data) => {
     });
 
     tableBody.appendChild(tableItemFragment);
-    const lastItemElement = tableBody.querySelector(`.table-item[data-id="${data.length - 1}"]`);
-    lastItemElement.setAttribute('id', 'to-down');
+
+    const moveDownTable = () => {
+        toDownButton.setAttribute('style', 'display:none;');
+        toUpButton.setAttribute('style', 'display:block;');
+    }
+
+    const moveUpTable = () => {
+        toUpButton.removeAttribute('style', 'display:block;');
+        toDownButton.setAttribute('style', 'display:block;');
+    }
+
+    console.log(tableBody);
+
+    tableBody.scrollHeight > 524 ? toDownButton.setAttribute('style', 'display:block;') : toDownButton.setAttribute('style', 'display:none;')
+
+    const scrolControlsClickhandler = (evt) => {
+
+        if(evt.target.className === 'history-body__to-down') {
+            tableBody.scrollTop = tableBody.scrollHeight;
+            moveDownTable();
+        } else if(evt.target.className === 'history-body__to-up') {
+            tableBody.scrollTop = 0;
+            moveUpTable();
+        }
+        return;
+    }
+
+    console.log(tableBody.scrollHeight);
+
+    tableBody.addEventListener('scroll', () => {
+        console.log(tableBody.scrollTop);
+        if(tableBody.scrollTop > (tableBody.scrollHeight / 3.5)) {
+            moveDownTable();
+        } else if (tableBody.scrollTop < tableBody.clientHeight || tableBody.scrollTop === 0){
+            moveUpTable();
+        }
+        return;
+    }, true)
+
+    scrollControls.addEventListener('click', scrolControlsClickhandler);
 }
 
 export {getTableItems};

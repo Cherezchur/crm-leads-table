@@ -200,6 +200,23 @@ table th:nth-child(6),
     background: #BBBBBB;
 }
 
+.history-body__to-up,
+.history-body__to-down {
+    display: none;
+}
+
+.history-body__to-up::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    background-image: url(./images/to-up-icon.png);
+}
+
 .history-body__to-down::after {
     content: "";
 
